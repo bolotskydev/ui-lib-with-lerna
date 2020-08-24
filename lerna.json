@@ -1,0 +1,13 @@
+{
+  "npmClient": "npm",
+  "packages": ["components/*"],
+  "version": "independent",
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "message": "chore(release): publish",
+      "ignoreChanges": ["**/stories/**", "**/tests/**"],
+      "allowBranch": "master"
+    }
+  }
+}

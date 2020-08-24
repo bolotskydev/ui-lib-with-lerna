@@ -1,0 +1,42 @@
+{
+  "name": "ui-lib-with-lerna",
+  "description": "A test ui component library managed with Lerna",
+  "private": true,
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bolotskyDev/ui-lib-with-lerna.git"
+  },
+  "scripts": {
+    "build:components": "lerna bootstrap && lerna exec npm run \"build\"",
+    "clean:components": "lerna exec npm run \"clean\"",
+    "publish:components": "lerna publish",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "start-storybook -p 9001 -c .storybook"
+  },
+  "author": "Kirill Bolotsky",
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@storybook/addon-actions": "^6.0.16",
+    "@storybook/addon-knobs": "^6.0.16",
+    "@storybook/cli": "^6.0.16",
+    "@storybook/react": "^6.0.16",
+    "@svgr/webpack": "^5.4.0",
+    "autoprefixer": "^9.8.6",
+    "css-loader": "^4.2.1",
+    "lerna": "^3.22.1",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1",
+    "svg-inline-loader": "^0.8.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

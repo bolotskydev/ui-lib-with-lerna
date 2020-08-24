@@ -1,0 +1,24 @@
+{
+  "name": "@ui-lib-with-lerna/button",
+  "description": "A button component",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "Kirill Bolotsky",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "cross-env webpack -p --config ../../webpack.config.js",
+    "clean": "rimraf dist && rimraf node_modules && rimraf package-lock.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
