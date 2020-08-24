@@ -3,6 +3,7 @@
   "description": "A test ui component library managed with Lerna",
   "private": true,
   "main": "index.js",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bolotskyDev/ui-lib-with-lerna.git"
