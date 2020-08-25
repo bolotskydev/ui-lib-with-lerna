@@ -11,7 +11,8 @@ const rules = [
         options: {
           import: true,
           modules: {
-            localIdentName: "[path][name]__[local]",
+            localIdentName: "[name]__[local]__[hash:base64:5]",
+            exportLocalsConvention: "camelCase",
           },
         },
       },
