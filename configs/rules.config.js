@@ -1,15 +1,18 @@
 const autoprefixer = require("autoprefixer");
+const path = require("path");
 
 const rules = [
   {
-    exclude: /node_modules/,
     test: /\.module\.scss$/,
     use: [
       "style-loader",
       {
         loader: "css-loader",
         options: {
-          modules: true,
+          import: true,
+          modules: {
+            localIdentName: "[path][name]__[local]",
+          },
         },
       },
       {
@@ -22,7 +25,50 @@ const rules = [
           ],
         },
       },
-      "sass-loader",
+      {
+        loader: "sass-loader",
+        options: {
+          sassOptions: {
+            includePaths: path.resolve(__dirname, "../styles"),
+          },
+        },
+      },
+      {
+        loader: "sass-resources-loader",
+        options: {
+          resources: path.resolve(__dirname, "../styles/styles.scss"),
+        },
+      },
+    ],
+  },
+  {
+    test: /\.scss$/,
+    exclude: /\.module.(scss)$/,
+    include: path.resolve(__dirname, "../"),
+    use: [
+      "style-loader",
+      {
+        loader: "css-loader",
+      },
+      {
+        loader: "postcss-loader",
+        options: {
+          plugins: [
+            autoprefixer({
+              grid: "autoplace",
+            }),
+          ],
+        },
+      },
+      {
+        loader: "sass-loader",
+        options: {
+          sassOptions: {
+            includePaths: path.resolve(__dirname, "../styles"),
+          },
+        },
+      },
+      "resolve-url-loader",
     ],
   },
   {
@@ -37,20 +83,23 @@ const rules = [
   },
   {
     test: /\.inline.svg$/,
-    exclude: /node_modules/,
     use: {
       loader: "@svgr/webpack",
     },
   },
   {
     test: /\.svg$/,
-    exclude: /node_modules/,
     use: {
       loader: "svg-inline-loader",
       options: {
         limit: 10000,
       },
     },
+  },
+  {
+    test: /\.(eot|ttf|woff|woff2)$/,
+    use: [{ loader: "file-loader?name=[name].[ext]" }],
+    include: path.resolve(__dirname, "../fonts"),
   },
 ];
 

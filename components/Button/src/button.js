@@ -8,8 +8,8 @@ const cx = classNames.bind(styles);
 export const Button = (props) => {
   const {
     className,
-    tag = "button",
-    type = "button",
+    tag,
+    type,
     disabled,
     size,
     theme,

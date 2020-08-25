@@ -5,4 +5,4 @@ export default {
   title: "Button",
 };
 
-export const Default = () => <Button />;
+export const Default = () => <Button> Default Button</Button>;
